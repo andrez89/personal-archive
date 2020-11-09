@@ -32,6 +32,9 @@ function json($object)
 {
     header('Content-Type: application/json');
     echo json_encode($object);
+    if (json_last_error() != JSON_ERROR_NONE) {
+        echo "{'JSON Error' : " . json_last_error_msg() . "}";
+    }
     die();
 }
 
@@ -102,32 +105,4 @@ function curl_get($url, array $headers = null, array $get = array(), array $opti
     }
     curl_close($ch);
     return $result;
-}
-
-use PHPMailer\PHPMailer\PHPMailer;
-
-function sendMail($email, $subject, $html)
-{
-    $mail = new PHPMailer();
-    // configure an SMTP
-    $mail->Host = SMTP_HOST;
-    $mail->SMTPAuth = true;
-    $mail->CharSet = 'UTF-8';
-    $mail->Username = SMTP_MAIL;
-    $mail->Password = SMTP_PASSWORD;
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
-    $mail->isHTML(true);
-
-    $mail->setFrom(SMTP_MAIL, 'PHP Framework');
-    $mail->addAddress($email);
-    $mail->Body = $html;
-    $mail->Subject = $subject;
-
-    if (!$mail->send()) {
-        echo 'Message could not be sent.<br>';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        //echo 'Message has been sent';
-    }
 }
