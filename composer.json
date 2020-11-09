@@ -1,0 +1,13 @@
+{
+    "name": "andrez/php-framework",
+    "description": "PHP Basic Framework",
+    "require": {
+        "phpmailer/phpmailer": "~6.1"
+    },
+    "autoload": {
+        "classmap": [
+            "./"
+        ],
+        "files": ["core/helpers.php", "core/classes.php"]
+    }
+}

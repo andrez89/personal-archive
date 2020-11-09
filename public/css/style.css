@@ -1,0 +1,22 @@
+.member-nr {
+    border-radius: 5px;
+    padding: 0px 4px;
+    color: black;
+}
+
+.round h3 {
+    text-align: center
+}
+
+.groups {
+    border-radius: 5px;
+    border: solid;
+    background-color: #f0fff0;
+    padding: 5px 15px 0px 15px;
+    margin: auto;
+    width: fit-content
+}
+
+label {
+    font-weight: bold;
+}
