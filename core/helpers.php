@@ -31,11 +31,26 @@ function redirect($path)
 function json($object)
 {
     header('Content-Type: application/json');
-    echo json_encode($object);
+    echo json_encode(utf8ize($object));
     if (json_last_error() != JSON_ERROR_NONE) {
-        echo "{'JSON Error' : " . json_last_error_msg() . "}";
+        echo "{'JSON Error' : '" . json_last_error_msg() . "'}";
     }
     die();
+}
+
+/* Use it for json_encode some corrupt UTF-8 chars
+ * useful for = malformed utf-8 characters possibly incorrectly encoded by json_encode
+ */
+function utf8ize($mixed)
+{
+    if (is_array($mixed)) {
+        foreach ($mixed as $key => $value) {
+            $mixed[$key] = utf8ize($value);
+        }
+    } elseif (is_string($mixed)) {
+        return mb_convert_encoding($mixed, "UTF-8", "UTF-8");
+    }
+    return $mixed;
 }
 
 /**
