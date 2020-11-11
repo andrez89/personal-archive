@@ -2,9 +2,9 @@
 local-db.sqlite3
 
 #environment
-.production
+.andrez
 .testing
-.development
+.server
 
 ### Composer ###
 composer.phar

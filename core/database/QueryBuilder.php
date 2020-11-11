@@ -43,18 +43,29 @@ class QueryBuilder
      * @param string $table
      * @param array $where
      */
-    public function select($table, $where, $fields = ["*"])
+    public function select($table, $where, $fields = ["*"], $order = "1", $limit = 500, $between = [])
     {
         $ps = array_keys($where);
         $pf = [];
         foreach ($ps as $p) {
             $pf[] = $p . " = :" . $p;
         }
+        $bt = " ";
+        foreach ($between as $b => $bp) {
+            if (sizeof($bp) == 2) {
+                $bt .= " AND " . $b . " BETWEEN :" . $b . "1 AND :" . $b . "2 ";
+                $where[$b . "1"] = $bp[0];
+                $where[$b . "2"] = $bp[1];
+            }
+        }
+
         $sql = sprintf(
-            'select %s from %s where %s',
+            'select %s from %s where %s order by %s limit %s',
             implode(', ', $fields),
             $table,
-            implode(' AND ', array_values($pf))
+            implode(' AND ', array_values($pf)) . $bt,
+            $order,
+            $limit
         );
 
         $statement = $this->pdo->prepare($sql);
@@ -120,10 +131,10 @@ class QueryBuilder
         $sql = sprintf(
             'update %s SET %s where %s',
             $table,
-            implode(', ', array_values($ps)),
+            implode(', ', array_values($pf)),
             $where
         );
-
+        //echo $sql;
         try {
             $statement = $this->pdo->prepare($sql);
 

@@ -9,5 +9,13 @@ return [
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
+    ],
+    'server' => [
+        'url' => 'http://resources',
+        "dir" => "",
+        "SSL" => false,
+        "error_reporting" => E_ALL,
+        "display_errors" => 1,
+        "server" => "andrez"
     ]
 ];

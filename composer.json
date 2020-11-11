@@ -8,6 +8,9 @@
         "classmap": [
             "./"
         ],
-        "files": ["core/helpers.php", "core/classes.php"]
+        "files": ["core/helpers/environment.php",
+            "core/helpers/functions.php",
+            "core/helpers/usersSession.php",
+            "core/helpers/menu.php"]
     }
 }

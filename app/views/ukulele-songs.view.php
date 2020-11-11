@@ -10,7 +10,8 @@
                         <th>Title</th>
                         <th>Artist</th>
                         <th>Genre</th>
-                        <th>Level</th>
+                        <th>Uke Lv</th>
+                        <th>Git Lv</th>
                         <th>Added</th>
                     </tr>
                 </thead>
@@ -107,9 +108,9 @@
                     "data": "title",
                     "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
                         $(nTd).html(oData.title + " &nbsp; " + (oData.link1 != "" ?
-                                " <a target='_blank' href='" + oData.link1 + "'><i class=\"fas fa-external-link-alt\"></i></a> &nbsp; " : " ") +
+                                " <a target='_blank' href='" + oData.linkUke + "'><i class=\"fas fa-external-link-alt\"></i></a> &nbsp; " : " ") +
                             (oData.link2 != "" ?
-                                " <a target='_blank' href='" + oData.link2 + "'><i class=\"fas fa-external-link-alt\"></i></a>" : " "));
+                                " <a target='_blank' href='" + oData.linkGuitar + "'><i class=\"fas fa-external-link-alt\"></i></a>" : " "));
                     }
                 },
                 {
@@ -119,14 +120,17 @@
                     "data": "genre"
                 },
                 {
-                    "data": "difficulty"
+                    "data": "difficultyUke"
+                },
+                {
+                    "data": "difficultyGit"
                 },
                 {
                     "data": "inserted"
                 }
             ],
             "order": [
-                [5, 'desc']
+                [6, 'desc']
             ],
             "lengthMenu": [
                 [10, 25, -1],

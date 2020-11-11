@@ -1,19 +1,7 @@
 <?php
-session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+define("DIRECTORY", __DIR__);
 
-// ENVIRONMENT DEFINITION
-if (file_exists(".server")) {
-    define("BASE_PATH", "");
-    define("CFG", ".server");
-    //
-    ini_set('display_errors', 0);
-} else {
-    define("BASE_PATH", "");
-    define("CFG", "");
-    ini_set('display_errors', 1);
-}
+session_start();
 
 require 'vendor/autoload.php';
 require 'core/bootstrap.php';

@@ -29,9 +29,13 @@ class UkuleleController
     public function getAll()
     {
         $result = App::get('database')->select(
-            "ukulele_songs u INNER JOIN difficulties d ON u.level = d.id",
+            "ukulele_songs u INNER JOIN difficulties dU ON u.levelUke = dU.id INNER JOIN difficulties dG ON u.levelGuitar = dG.id",
             ["secret" => isset($_GET['secret']) ? $_GET['secret'] : ""],
-            ["u.*", "concat(d.id, ' ', d.description) difficulty"]
+            [
+                "u.*",
+                "concat(dU.id, ' ', dU.description) difficultyUke",
+                "concat(dG.id, ' ', dG.description) difficultyGit"
+            ]
         );
         header("X-ROWS: " . sizeof($result));
         json(["data" => $result]);

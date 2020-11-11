@@ -9,5 +9,13 @@ return [
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
+    ],
+    'server' => [
+        'url' => 'http://51.75.254.233:8014',
+        "dir" => "",
+        "SSL" => false,
+        "error_reporting" => E_ALL,
+        "display_errors" => 1,
+        "server" => "server"
     ]
 ];

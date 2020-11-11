@@ -23,6 +23,17 @@ function redirect($path)
     header("Location: /" . BASE_PATH . "{$path}");
 }
 
+function expiredSession()
+{
+    $url = str_replace(BASE_PATH, "", $_SERVER['REQUEST_URI']);
+    $pos = strpos($url, "/");
+    if ($pos !== false && $pos <= 1) {
+        $url = substr_replace($url, "", 0, 1);
+    }
+    header("Location: /" . BASE_PATH . "?url=" . urlencode($url));
+    die();
+}
+
 /**
  * Return JSON response.
  *
@@ -53,13 +64,6 @@ function utf8ize($mixed)
     return $mixed;
 }
 
-/**
- * Return User Login State.
- */
-function logged()
-{
-    return isset($_SESSION["user_id"]);
-}
 
 /**
  * Send a POST requst using cURL
@@ -120,4 +124,14 @@ function curl_get($url, array $headers = null, array $get = array(), array $opti
     }
     curl_close($ch);
     return $result;
+}
+
+function ifNull($variable, $result = "")
+{
+    return isset($variable) ? $variable : $result;
+}
+
+function ifNoElement($array, $key, $result = "")
+{
+    return isset($array[$key]) ? $array[$key] : $result;
 }
