@@ -11,8 +11,8 @@ return [
         ]
     ],
     'server' => [
-        'url' => 'http://resources',
-        "dir" => "",
+        'url' => 'http://localhost/resources',
+        "dir" => "resources/",
         "SSL" => false,
         "error_reporting" => E_ALL,
         "display_errors" => 1,
