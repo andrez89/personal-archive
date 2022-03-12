@@ -11,9 +11,9 @@ return [
         ]
     ],
     'server' => [
-        'url' => 'http://51.75.254.233:8014',
+        'url' => 'https://amovez.it/resources',
         "dir" => "",
-        "SSL" => false,
+        "SSL" => true,
         "error_reporting" => E_ALL,
         "display_errors" => 1,
         "server" => "server"
