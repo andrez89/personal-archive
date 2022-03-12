@@ -12,7 +12,7 @@ return [
     ],
     'server' => [
         'url' => 'https://amovez.it/resources',
-        "dir" => "",
+        "dir" => "resources/",
         "SSL" => true,
         "error_reporting" => E_ALL,
         "display_errors" => 1,
