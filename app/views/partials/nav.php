@@ -3,10 +3,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/<?= BASE_PATH ?>">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+            <img style="max-width: 80px ;" src="/<?= BASE_PATH ?>public/images/logo-w.png">
         </div>
-        <div class="sidebar-brand-text mx-3">Toolbox<sup>AZ</sup></div>
+        <div class="sidebar-brand-text mx-3"><i class="fa fa-toolbox"></i> <sup>AZ</sup></div>
     </a>
 
     <!-- Divider -->

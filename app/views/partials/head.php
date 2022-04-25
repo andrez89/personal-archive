@@ -10,6 +10,8 @@
 
     <title><?= isset($page) ? $page : "Home" ?> | Toolbox</title>
 
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <link rel="stylesheet" href="/<?= BASE_PATH ?>public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/<?= BASE_PATH ?>public/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="/<?= BASE_PATH ?>public/css/style.css">
