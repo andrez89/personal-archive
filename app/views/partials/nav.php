@@ -27,7 +27,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
                 <a class="collapse-item" href="/<?= BASE_PATH ?>carousel">Carousel</a>
-                <a class="collapse-item" href="#">Coming soon...</a>
+                <a class="collapse-item" href="/<?= BASE_PATH ?>schema">Schema</a>
             </div>
         </div>
     </li>
