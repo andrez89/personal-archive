@@ -71,9 +71,13 @@
         pTimes = [5, 0, 0, 0, 30]; // preparation
 
     function prepareInput(rounds) {
+        $('#timings_0').empty();
+        $('#timings_1').empty();
+        $('#timings_2').empty();
+        $('#timings_3').empty();
+        $('#timings_4').empty();
         for (var i = 0; i < rounds; i++) {
             var j = i + 1;
-            $('#timings_' + i).empty();
             $('#timings_' + i).append("<hr class='col-12'>");
             $('#timings_' + i).append(
                 $('<div>', {
@@ -168,6 +172,7 @@
         var timer = timeToMinutes(start);
         $('#results').empty();
         $('#results').append('<h2 class="col-12">Start time: ' + start + '</h2>');
+        console.debug('timer start: ', timer);
         for (var i = 0; i < rounds; i++) {
             $('#results').append($('<div>', {
                 id: 'card_' + i,
@@ -180,11 +185,13 @@
             $('#results_' + i).append('<h2 class="col-12">Round ' + (i + 1) + '</h2>');
             for (var j = 0; j < couples; j++) {
                 $('#results_' + i).append('<h3 class="col-12 mt-2">Couple ' + String.fromCharCode(97 + j).toUpperCase() + '</h3>');
+                console.debug('timer before r: ', timer);
                 if (rTimes[i] > 0) {
                     $('#results_' + i).append(
                         '<h4 class="col-6">Session: </h4><h4 class="col-6">' + minsToTime(timer) + ' - ' + minsToTime(timer + rTimes[i]) + '</h4>');
                     timer += rTimes[i];
                 }
+                console.debug('timer after r: ', timer);
                 if (sTimes[i] > 0) {
                     $('#results_' + i).append(
                         '<h4 class="col-6">Sharing: </h4><h4 class="col-6">' + minsToTime(timer) + ' - ' + minsToTime(timer + sTimes[i]) + '</h4>');
@@ -234,11 +241,11 @@
     function updateValues() {
         var rounds = $('#rounds').val();
         for (var i = 0; i < rounds; i++) {
-            rTimes[i] = $('#r_' + i).val();
-            sTimes[i] = $('#s_' + i).val();
-            bTimes[i] = $('#b_' + i).val();
-            gTimes[i] = $('#g_' + i).val();
-            pTimes[i] = $('#p_' + i).val();
+            rTimes[i] = parseInt($('#r_' + i).val());
+            sTimes[i] = parseInt($('#s_' + i).val());
+            bTimes[i] = parseInt($('#b_' + i).val());
+            gTimes[i] = parseInt($('#g_' + i).val());
+            pTimes[i] = parseInt($('#p_' + i).val());
         }
         generateSchema();
     }
