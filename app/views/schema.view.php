@@ -48,7 +48,7 @@
     <div class="col-xl-2 col-md-3 col-6">
         <div class="form-group">
             <label>End Time</label>
-            <input class="form-control" type="number" id="end" name="end" disabled>
+            <input class="form-control" type="text" id="end" name="end" disabled>
         </div>
     </div>
 </div>
@@ -211,6 +211,7 @@
                 }
             }
         }
+        $('#end').val(minsToTime(timer));
     }
 
     function generateSchema() {

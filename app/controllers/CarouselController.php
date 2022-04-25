@@ -9,7 +9,7 @@ class CarouselController
      */
     public function index()
     {
-        return view('carousel', ["page" => "Carousel"]);
+        return view('carousel', ["page" => "Carousel Generator"]);
     }
 
     /**
@@ -17,6 +17,6 @@ class CarouselController
      */
     public function schema()
     {
-        return view('schema', ["page" => "Schema Maker"]);
+        return view('schema', ["page" => "Schema Generator"]);
     }
 }
