@@ -11,4 +11,12 @@ class CarouselController
     {
         return view('carousel', ["page" => "Carousel"]);
     }
+
+    /**
+     * Show carousel page.
+     */
+    public function schema()
+    {
+        return view('schema', ["page" => "Schema Maker"]);
+    }
 }

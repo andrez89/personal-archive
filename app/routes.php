@@ -2,6 +2,7 @@
 $router->get('', 'PagesController@home');
 
 $router->get('carousel', 'CarouselController@index');
+$router->get('schema', 'CarouselController@schema');
 
 $router->get('activities', 'ActivitiesController@index');
 $router->get('api/activities', 'ActivitiesController@getAll');
