@@ -172,7 +172,6 @@
         var timer = timeToMinutes(start);
         $('#results').empty();
         $('#results').append('<h2 class="col-12">Start time: ' + start + '</h2>');
-        console.debug('timer start: ', timer);
         for (var i = 0; i < rounds; i++) {
             $('#results').append($('<div>', {
                 id: 'card_' + i,
@@ -185,13 +184,11 @@
             $('#results_' + i).append('<h2 class="col-12">Round ' + (i + 1) + '</h2>');
             for (var j = 0; j < couples; j++) {
                 $('#results_' + i).append('<h3 class="col-12 mt-2">Couple ' + String.fromCharCode(97 + j).toUpperCase() + '</h3>');
-                console.debug('timer before r: ', timer);
                 if (rTimes[i] > 0) {
                     $('#results_' + i).append(
                         '<h4 class="col-6">Session: </h4><h4 class="col-6">' + minsToTime(timer) + ' - ' + minsToTime(timer + rTimes[i]) + '</h4>');
                     timer += rTimes[i];
                 }
-                console.debug('timer after r: ', timer);
                 if (sTimes[i] > 0) {
                     $('#results_' + i).append(
                         '<h4 class="col-6">Sharing: </h4><h4 class="col-6">' + minsToTime(timer) + ' - ' + minsToTime(timer + sTimes[i]) + '</h4>');
