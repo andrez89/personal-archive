@@ -9,8 +9,7 @@
   <meta name="page_type" content="np-template-header-footer-from-plugin">
   <title>Ti Amo</title>
   <link rel="stylesheet" href="/resources/custom/style.css" media="screen">
-  <script class="u-script" type="text/javascript" src="/resources/custom/jquery-1.9.1.min.js"
-    defer=""></script>
+  <script type="text/javascript" src="/resources/custom/jquery-1.9.1.min.js"></script>
   <link id="u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
   <link id="u-page-google-font" rel="stylesheet"
@@ -23,6 +22,7 @@
       margin-top: -50px;
       margin-bottom: -50px;
     }
+
     path {
       fill: url(#bg-image);
     }
@@ -166,24 +166,27 @@
                      A15,15 0 0,1 320,240 z' />
           </svg>
           <p class="u-text u-text-2">
-            Bentornata in Italia! <br>
+            Bentornata in Italia! Spero che il tuo rientro stia andando bene. <br>
             È stato un viaggio intenso, pieno di momenti belli, ma anche tristi e difficili. <br>
             Ti aspetta ancora un weekend carico, non ci sarà tanto tempo per fermarsi..
             per questo l'offerta di oggi è attivabile in 3 diverse configurazioni.
             <br><br>
             Per attivare il servizio scelto, clicca il bottone associato. <br>
             Nel frattempo, buon riposo e ti mando un abbraccio forte forte!!<br><br>
-            E ricorda che in ogni caso ti amo <b>TANTO<sup>TANTISSIMO<sup>ISSIM-ISSIIMO</sup></sup></b>
+            E ricorda che in ogni caso ti amo <b>TANTO<sup>TANTISSIMO<sup>ISSIM-ISSIMO</sup></sup></b>
           </p>
           <a href="https://wa.me/+393466080284?text=Ciao amore!! Sono provata da questo viaggio e non so ancora come andrà domani.. se riesco ci sentiamo domani e vediamo"
+            target="_blank" onclick="track(1)"
             class="u-active-palette-2-base u-border-none u-btn u-button-style u-hover-palette-2-base u-palette-2-base u-text-active-white u-text-hover-white u-btn-1">
             1. Ho bisogno di spazio, <br>ci sentiamo domani.</a>
           </p>
           <a href="https://wa.me/+393466080284?text=Ciao amore!!!! Domani sarà una giornata intensa, ma sarebbe bellissimo se riuscissi a venire a Torino per quando finisco con l'animazione. Ho tanta voglia di abbracciarti!!"
+            target="_blank" onclick="track(2)"
             class="u-border-none u-btn u-button-style u-text-active-white u-text-hover-white u-btn-1">
             2. Muovi le chiappe <br>e vieni a Torino!</a>
           </p>
           <a href="https://wa.me/+393466080284?text=Ciao amore!! Hai rotto le balle con questi messaggi, lasciami tranquilla un paio di giorni che mi riprendo da questa esperienza intensa e poi vediamo.. un bacio ;)"
+            target="_blank" onclick="track(3)"
             class="u-active-palette-3-base u-border-none u-btn u-button-style u-hover-palette-3-base u-palette-3-base u-text-active-white u-text-hover-white u-btn-1">
             3. Lasciami tranquilla, <br>ci sentiamo poi..</a>
           </p>
@@ -192,6 +195,17 @@
     </div>
   </section>
 
+  <script>
+    function track(id) {
+      $.ajax({
+        url: '/resources/track?id=' + id
+      });
+    }
+
+    $(document).ready(function () {
+      track(0);
+    });
+  </script>
 </body>
 
 </html>

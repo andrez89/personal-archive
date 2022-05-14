@@ -15,3 +15,5 @@ $router->get('api/capoeira-songs', 'CapoeiraController@getAll');
 
 $router->get('ukulele-songs', 'UkuleleController@index');
 $router->get('api/ukulele-songs', 'UkuleleController@getAll');
+
+$router->get('track', 'PagesController@track');
